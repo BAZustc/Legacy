@@ -1,9 +1,7 @@
 import { SVGProps } from 'react'
 
 export const LogoText = (props: SVGProps<SVGSVGElement>) => {
-  return ( <?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
- "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+  return (
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="105.000000pt" height="20.000000pt" viewBox="0 0 477.000000 116.000000"
  preserveAspectRatio="xMidYMid meet">
