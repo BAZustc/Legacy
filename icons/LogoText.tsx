@@ -6,7 +6,7 @@ export const LogoText = (props: SVGProps<SVGSVGElement>) => {
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,116.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
+fill="#FFD133" stroke="none">
 <path d="M432 1093 c-32 -4 -33 -6 -30 -46 3 -39 5 -42 36 -45 l32 -3 0 -294
 0 -294 -32 -3 c-31 -3 -33 -5 -36 -47 l-3 -43 188 5 c203 5 234 11 305 56 83
 53 115 166 73 256 -19 39 -93 95 -127 95 -28 0 -21 16 16 40 76 46 104 143 64
