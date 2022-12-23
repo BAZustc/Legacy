@@ -1,7 +1,7 @@
 import { SVGProps } from 'react'
 
 export const Logo = (props: SVGProps<SVGSVGElement>) => {
-  return (<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="37" height="26px" viewBox="0 0 37 26" enable-background="new 0 0 37 26" xml:space="preserve">  <image id="image0" width="37" height="26" x="0" y="0"
+  return (<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="27" height="16px" viewBox="0 0 27 16" enable-background="new 0 0 27 16" xml:space="preserve">  <image id="image0" width="27" height="16" x="0" y="0"
     href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQsAAACLCAYAAAB2krw+AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
 AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAABE
 eUlEQVR42u29d5Rc133n+f3d+16lrq6uzgHdaKAbsRFIJObQJCWSoiTast1ykLyWx7bsnbE9M96Z
