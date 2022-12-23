@@ -1,5 +1,5 @@
 {
-  "name": "wasmswap-interface",
+  "name": "IBLswap",
   "version": "1.7.0",
   "scripts": {
     "dev": "next dev",
