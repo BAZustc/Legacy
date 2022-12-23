@@ -1,8 +1,7 @@
 import { SVGProps } from 'react'
 
 export const LogoText = (props: SVGProps<SVGSVGElement>) => {
-  return ( 
-      
+  return ( <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="105px" height="20px" viewBox="0 0 105 20" enable-background="new 0 0 105 20" xml:space="preserve">  <image id="image0" width="105" height="20" x="0" y="0"
     href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd0AAAB0CAYAAADAWej8AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
 AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAABi
 60lEQVR42u39eZRc133nCX6/v/uWiIzcsYMAmQBBAAS4CqJoaoVkWSrJlqwqOSnRsmRVdY+qXDXq
