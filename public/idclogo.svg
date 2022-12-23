@@ -1,8 +1,6 @@
-import { SVGProps } from 'react'
-
-export const Logo = (props: SVGProps<SVGSVGElement>) => {
-  return (
-    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="37" height="26px" viewBox="0 0 37 26" enable-background="new 0 0 37 26" xml:space="preserve">  <image id="image0" width="37" height="26" x="0" y="0"
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="267px" height="139px" viewBox="0 0 267 139" enable-background="new 0 0 267 139" xml:space="preserve">  <image id="image0" width="267" height="139" x="0" y="0"
     href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQsAAACLCAYAAAB2krw+AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
 AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAABE
 eUlEQVR42u29d5Rc133n+f3d+16lrq6uzgHdaKAbsRFIJObQJCWSoiTast1ykLyWx7bsnbE9M96Z
@@ -315,4 +313,4 @@ j3v8+NcvC8NNKw4/T0UsKlTApbDsD38oe4pdNGC/Q1uwFefdIrW7jQSMAQDGDD9vMYJ8/vww9/Ts
 wsBAXMdivToWi60rUahQoUKFChUqVKhQoUKFNcL/D6DLn4G90h5VAAAAJXRFWHRkYXRlOmNyZWF0
 ZQAyMDIyLTEyLTIzVDA2OjMzOjQyKzAwOjAwDw6r/AAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0x
 Mi0yM1QwNjozMzo0MiswMDowMH5TE0AAAAAASUVORK5CYII=" />
-</svg>)}
+</svg>
