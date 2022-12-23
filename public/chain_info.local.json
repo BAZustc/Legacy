@@ -1,44 +1,39 @@
 {
   "chainId": "testing",
-  "chainName": "Juno Local",
+  "chainName": "terra classic",
   "rpc": "http://localhost:26657/",
   "rest": "http://localhost:1317/",
   "stakeCurrency": {
-    "coinDenom": "JUNO",
-    "coinMinimalDenom": "ujuno",
+    "coinDenom": "LUNC",
+    "coinMinimalDenom": "uluna",
     "coinDecimals": 6,
-    "coinGeckoId": "juno-network"
+    "coinGeckoId": "terra-classic-network"
   },
   "bip44": {
     "coinType": 118
   },
   "bech32Config": {
-    "bech32PrefixAccAddr": "juno",
-    "bech32PrefixAccPub": "junopub",
-    "bech32PrefixValAddr": "junovaloper",
-    "bech32PrefixValPub": "junovaloperpub",
-    "bech32PrefixConsAddr": "junovalcons",
-    "bech32PrefixConsPub": "junovalconspub"
+    "bech32PrefixAccAddr": "terra",
+    "bech32PrefixAccPub": "terrapub",
+    "bech32PrefixValAddr": "terravaloper",
+    "bech32PrefixValPub": "terravaloperpub",
+    "bech32PrefixConsAddr": "terravalcons",
+    "bech32PrefixConsPub": "terravalconspub"
   },
   "currencies": [
     {
-      "coinDenom": "JUNO",
-      "coinMinimalDenom": "ujuno",
+      "coinDenom": "USTC",
+      "coinMinimalDenom": "uusd",
       "coinDecimals": 6,
-      "coinGeckoId": "juno-network"
-    },
-    {
-      "coinDenom": "COSM",
-      "coinMinimalDenom": "ucosm",
-      "coinDecimals": 6
+      "coinGeckoId": "terra-classic-network"
     }
   ],
   "feeCurrencies": [
     {
-      "coinDenom": "JUNO",
-      "coinMinimalDenom": "ujuno",
+      "coinDenom": "USTC",
+      "coinMinimalDenom": "uusd",
       "coinDecimals": 6,
-      "coinGeckoId": "juno-network"
+      "coinGeckoId": "terra-classic-network"
     }
   ],
   "coinType": 118,
