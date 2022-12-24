@@ -1,4 +1,4 @@
-import { ChainInfo } from ''@terra-money/wallet-provider''
+import { ChainInfo } from '@terra-money/wallet-provider'
 import { useQuery } from 'react-query'
 
 import { queryClient } from '../services/queryClient'
