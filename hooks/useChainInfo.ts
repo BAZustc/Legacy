@@ -1,4 +1,4 @@
-import { ChainInfo } from '@keplr-wallet/types'
+import { ChainInfo } from ''@terra-money/wallet-provider''
 import { useQuery } from 'react-query'
 
 import { queryClient } from '../services/queryClient'
