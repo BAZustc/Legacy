@@ -1,112 +1,105 @@
-import {
-  createWasmAminoConverters,
-  SigningCosmWasmClient,
-} from '@cosmjs/cosmwasm-stargate'
-import {
-  AminoTypes,
-  createIbcAminoConverters,
-  GasPrice,
-} from '@cosmjs/stargate'
-import { useEffect } from 'react'
-import { useMutation } from 'react-query'
-import { useRecoilState } from 'recoil'
+import { useWallet, WalletStatus } from '@terra-money/wallet-provider';
+import React from 'react';
 
-import { walletState, WalletStatusType } from '../state/atoms/walletAtoms'
-import { GAS_PRICE } from '../util/constants'
-import { useChainInfo } from './useChainInfo'
+export function ConnectSample() {
+  const {
+    status,
+    network,
+    wallets,
+    availableConnectTypes,
+    availableInstallTypes,
+    availableConnections,
+    availableInstallations,
+    supportFeatures,
+    connect,
+    connection,
+    install,
+    disconnect,
+  } = useWallet();
 
-export const useConnectWallet = (
-  mutationOptions?: Parameters<typeof useMutation>[2]
-) => {
-  const [{ status }, setWalletState] = useRecoilState(walletState)
-  const [chainInfo] = useChainInfo()
+  return (
+    <div>
+      <h1>Connect Sample</h1>
+      <section>
+        <pre>
+          {JSON.stringify(
+            {
+              status,
+              connection,
+              network,
+              wallets,
+              supportFeatures: Array.from(supportFeatures),
+              availableConnectTypes,
+              availableInstallTypes,
+              availableInstallations,
+            },
+            null,
+            2,
+          )}
+        </pre>
+      </section>
 
-  const mutation = useMutation(async () => {
-    if (window && !window?.keplr) {
-      alert('Please install Keplr extension and refresh the page.')
-      return
-    }
-
-    /* set the fetching state */
-    setWalletState((value) => ({
-      ...value,
-      client: null,
-      state: WalletStatusType.connecting,
-    }))
-
-    try {
-      await window.keplr.experimentalSuggestChain(chainInfo)
-      await window.keplr.enable(chainInfo.chainId)
-
-      const offlineSigner = await window.getOfflineSignerAuto(chainInfo.chainId)
-      const wasmChainClient = await SigningCosmWasmClient.connectWithSigner(
-        chainInfo.rpc,
-        offlineSigner,
-        {
-          gasPrice: GasPrice.fromString(GAS_PRICE),
-          /*
-           * passing ibc amino types for all the amino signers (eg ledger, wallet connect)
-           * to enable ibc & wasm transactions
-           * */
-          aminoTypes: new AminoTypes(
-            Object.assign(
-              createIbcAminoConverters(),
-              createWasmAminoConverters()
-            )
-          ),
-        }
-      )
-
-      const [{ address }] = await offlineSigner.getAccounts()
-      const key = await window.keplr.getKey(chainInfo.chainId)
-
-      /* successfully update the wallet state */
-      setWalletState({
-        key,
-        address,
-        client: wasmChainClient,
-        status: WalletStatusType.connected,
-      })
-    } catch (e) {
-      /* set the error state */
-      setWalletState({
-        key: null,
-        address: '',
-        client: null,
-        status: WalletStatusType.error,
-      })
-
-      /* throw the error for the UI */
-      throw e
-    }
-  }, mutationOptions)
-
-  useEffect(
-    function restoreWalletConnectionIfHadBeenConnectedBefore() {
-      /* restore wallet connection if the state has been set with the */
-      if (chainInfo?.rpc && status === WalletStatusType.restored) {
-        mutation.mutate(null)
-      }
-    }, // eslint-disable-next-line
-    [status, chainInfo?.rpc]
-  )
-
-  useEffect(
-    function listenToWalletAddressChangeInKeplr() {
-      function reconnectWallet() {
-        if (status === WalletStatusType.connected) {
-          mutation.mutate(null)
-        }
-      }
-
-      window.addEventListener('keplr_keystorechange', reconnectWallet)
-      return () => {
-        window.removeEventListener('keplr_keystorechange', reconnectWallet)
-      }
-    },
-    // eslint-disable-next-line
-    [status]
-  )
-
-  return mutation
+      <footer>
+        {status === WalletStatus.WALLET_NOT_CONNECTED && (
+          <>
+            <button onClick={() => connect()}>Connect</button>
+            <br />
+            {availableInstallTypes.map((connectType) => (
+              <button
+                key={'install-' + connectType}
+                onClick={() => install(connectType)}
+              >
+                Install {connectType}
+              </button>
+            ))}
+            {availableConnectTypes.map((connectType) => (
+              <button
+                key={'connect-' + connectType}
+                onClick={() => connect(connectType)}
+              >
+                Connect {connectType}
+              </button>
+            ))}
+            <br />
+            {availableConnections.map(
+              ({ type, name, icon, identifier = '' }) => (
+                <button
+                  key={'connection-' + type + identifier}
+                  onClick={() => connect(type, identifier)}
+                >
+                  <img
+                    src={icon}
+                    alt={name}
+                    style={{ width: '1em', height: '1em' }}
+                  />
+                  {name} [{identifier}]
+                </button>
+              ),
+            )}
+            <br />
+            {availableInstallations.map(
+              ({ type, identifier, name, icon, url }) => (
+                <a
+                  key={'installation-' + type + identifier}
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src={icon}
+                    alt={name}
+                    style={{ width: '1em', height: '1em' }}
+                  />
+                  Install {name} [{identifier}]
+                </a>
+              ),
+            )}
+          </>
+        )}
+        {status === WalletStatus.WALLET_CONNECTED && (
+          <button onClick={() => disconnect()}>Disconnect</button>
+        )}
+      </footer>
+    </div>
+  );
 }
